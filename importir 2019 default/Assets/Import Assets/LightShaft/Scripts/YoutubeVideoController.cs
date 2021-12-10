@@ -56,15 +56,15 @@ namespace LightShaft.Scripts
                 }
             }
             
-            //if (showPlayerControl)
-            //{
-            //    if(speedSlider == null)
-            //        Debug.LogWarning("Drag the playback speed slider to the speedSlider field.");
-            //    if(volumeSlider == null)
-            //        Debug.LogWarning("Drag the volume eslider to the volumeSlider field.");
-            //    if(playbackSlider == null)
-            //        Debug.LogWarning("Drag the playback slider to the playbackSlider field, this is necessary to change the video progress.");
-            //}
+            if (showPlayerControl)
+            {
+                if(speedSlider == null)
+                    Debug.LogWarning("Drag the playback speed slider to the speedSlider field.");
+                if(volumeSlider == null)
+                    Debug.LogWarning("Drag the volume eslider to the volumeSlider field.");
+                if(playbackSlider == null)
+                    Debug.LogWarning("Drag the playback slider to the playbackSlider field, this is necessary to change the video progress.");
+            }
             //speedSlider.maxValue = 3;   //max playback speed is 3;
 
             if (useSliderToProgressVideo)

@@ -13,7 +13,6 @@ public class YoutubeUrlManager : MonoBehaviour
     [SerializeField] List<LinkFromCsv> youtubeUrls;
     [SerializeField] YoutubePlayer[] youtubePlayers;
     private DownloadFile downloadFile;
-    [SerializeField] FileDownloaded fileDownloaded;
 
     private void Awake()
     {
@@ -24,39 +23,37 @@ public class YoutubeUrlManager : MonoBehaviour
             Debug.Log("ERROR: " + error);
         }, (string text) =>
         {
-            fileDownloaded.textReceived = text.ToString();
+            Debug.Log("Received: " + text);
+            CsvToYoutubeUrl(text);
+            if (loadType == ON_LOADED.LOAD_AND_PLAY)
+            {
+                for (int i = 0; i < youtubeUrls.Count; i++)
+                {
+                    for (int j = 0; j < youtubePlayers.Length; j++)
+                    {
+                        if (youtubePlayers[j].gameObject.name == youtubeUrls[i].id)
+                        {
+                            youtubePlayers[j].Play(youtubeUrls[i].url);
+                        }
+                    }
+                }
+            }
+            else if (loadType == ON_LOADED.PRELOAD_URL)
+            {
+                for (int i = 0; i < youtubeUrls.Count; i++)
+                {
+                    for (int j = 0; j < youtubePlayers.Length; j++)
+                    {
+                        if (youtubePlayers[j].gameObject.name == youtubeUrls[i].id)
+                        {
+                            //youtubePlayers[j].PlayPause();
+                            youtubePlayers[j].PreLoadVideo(youtubeUrls[i].url);
+                        }
+                    }
+                }
+            }
             
         });
-
-        Debug.Log("Received: " + fileDownloaded.textReceived);
-        CsvToYoutubeUrl(fileDownloaded.textReceived);
-        if (loadType == ON_LOADED.LOAD_AND_PLAY)
-        {
-            for (int i = 0; i < youtubeUrls.Count; i++)
-            {
-                for (int j = 0; j < youtubePlayers.Length; j++)
-                {
-                    if (youtubePlayers[j].gameObject.name == youtubeUrls[i].id)
-                    {
-                        youtubePlayers[j].Play(youtubeUrls[i].url);
-                    }
-                }
-            }
-        }
-        else if (loadType == ON_LOADED.PRELOAD_URL)
-        {
-            for (int i = 0; i < youtubeUrls.Count; i++)
-            {
-                for (int j = 0; j < youtubePlayers.Length; j++)
-                {
-                    if (youtubePlayers[j].gameObject.name == youtubeUrls[i].id)
-                    {
-                        //youtubePlayers[j].PlayPause();
-                        youtubePlayers[j].PreLoadVideo(youtubeUrls[i].url);
-                    }
-                }
-            }
-        }
     }
 
     public void CsvToYoutubeUrl(string csvText)

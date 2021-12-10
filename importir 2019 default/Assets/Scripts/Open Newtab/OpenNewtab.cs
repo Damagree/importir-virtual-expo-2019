@@ -14,7 +14,7 @@ public class OpenNewtab : MonoBehaviour
     [SerializeField] List<LinkFromCsv> listOfLink;
     [SerializeField] Button[] buttons;
     [SerializeField] DownloadFile downloadFile;
-    [SerializeField] FileDownloaded fileDownloaded;
+
 
     [Header("Not Changeable"), Space(5)]
     [SerializeField] string url = "";
@@ -30,23 +30,22 @@ public class OpenNewtab : MonoBehaviour
                 Debug.Log("ERROR: " + error);
             }, (string text) =>
             {
-                fileDownloaded.textReceived = text.ToString();
-            });
-
-            Debug.Log("Received: " + fileDownloaded.textReceived);
-            CsvToUrl(fileDownloaded.textReceived);
-            for (int i = 0; i < listOfLink.Count; i++)
-            {
-                int i2 = i;
-                for (int j = 0; j < buttons.Length; j++)
+                Debug.Log("Received: " + text);
+                CsvToUrl(text);
+                for (int i = 0; i < listOfLink.Count; i++)
                 {
-                    int j2 = j;
-                    if (buttons[j2].gameObject.name == listOfLink[i2].id)
+                    int i2 = i;
+                    for (int j = 0; j < buttons.Length; j++)
                     {
-                        buttons[j2].onClick.AddListener(delegate { OpenDefaultNewtab(listOfLink[i2].url); });
+                        int j2 = j;
+                        if (buttons[j2].gameObject.name == listOfLink[i2].id)
+                        {
+                            buttons[j2].onClick.AddListener(delegate { OpenDefaultNewtab(listOfLink[i2].url); });
+                            Debug.Log("url: " + url + " | to button: " + buttons[j2].gameObject.name);
+                        }
                     }
                 }
-            }
+            });
         }
         
     }

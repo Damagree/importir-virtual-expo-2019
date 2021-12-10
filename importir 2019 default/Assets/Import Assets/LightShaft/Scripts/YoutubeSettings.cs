@@ -880,7 +880,7 @@ namespace LightShaft.Scripts
                     TryToLoadThumbnailBeforeOpenVideo(_videoId);
                 youtubeUrlReady = false;
                 //Show loading
-                //ShowLoading();
+                ShowLoading();
 
                 youtubeUrl = _videoId;
                 //loading for fist time, so it's not a retry
