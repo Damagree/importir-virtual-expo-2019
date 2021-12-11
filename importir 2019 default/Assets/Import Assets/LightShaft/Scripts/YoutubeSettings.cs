@@ -528,7 +528,7 @@ namespace LightShaft.Scripts
 
         IEnumerator DownloadThumbnail(string videoId)
         {
-            UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://img.youtube.com/vi/" + videoId + "/0.jpg");
+            UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://importir.org/cors/file?url=https://img.youtube.com/vi/" + videoId + "/0.jpg");
             //request.SetRequestHeader("User-Agent", USER_AGENT);
             yield return request.SendWebRequest();
             EnableThumbnailObject();
