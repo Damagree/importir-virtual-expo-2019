@@ -69,8 +69,8 @@ namespace LightShaft.Scripts
 
             if (useSliderToProgressVideo)
             {
-                progressRectangle.gameObject.SetActive(false);
-                playbackSlider.gameObject.SetActive(true);
+                progressRectangle?.gameObject.SetActive(false);
+                playbackSlider?.gameObject.SetActive(true);
             }
             else
             {
@@ -194,12 +194,12 @@ namespace LightShaft.Scripts
             if (showingVolume)
             {
                 showingVolume = false;
-                volumeSlider.gameObject.SetActive(false);
+                volumeSlider?.gameObject.SetActive(false);
             }
             else
             {
                 showingVolume = true;
-                volumeSlider.gameObject.SetActive(true);
+                volumeSlider?.gameObject.SetActive(true);
             }
         }
 
@@ -208,12 +208,12 @@ namespace LightShaft.Scripts
             if (showingSpeed)
             {
                 showingSpeed = false;
-                speedSlider.gameObject.SetActive(false);
+                speedSlider?.gameObject.SetActive(false);
             }
             else
             {
                 showingSpeed = true;
-                speedSlider.gameObject.SetActive(true);
+                speedSlider?.gameObject.SetActive(true);
             }
         }
     }

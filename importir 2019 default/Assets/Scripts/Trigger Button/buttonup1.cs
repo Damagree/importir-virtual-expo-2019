@@ -12,13 +12,13 @@ public class buttonup1 : MonoBehaviour
      }
  
  void OnTriggerEnter(Collider _col){
-         if (_col.gameObject.CompareTag ("Player")) {
+         if (_col.gameObject.CompareTag ("button1")) {
              trigger.SetActive (true);
                  }
          }
 
          void OnTriggerExit(Collider _col){
-         if (_col.gameObject.CompareTag ("Player")) {
+         if (_col.gameObject.CompareTag ("button1")) {
              trigger.SetActive (false);
          }
      }

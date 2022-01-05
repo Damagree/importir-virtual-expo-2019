@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(DownloadFile))]
 public class YoutubeUrlManager : MonoBehaviour
 {
-    enum ON_LOADED { PRELOAD_URL, LOAD_AND_PLAY };
+    enum ON_LOADED { JUST_SET_URL, PRELOAD_URL, LOAD_AND_PLAY };
 
     [SerializeField] ON_LOADED loadType;
     [SerializeField, TextArea(3, 4)] string csvUrl;
@@ -52,7 +52,21 @@ public class YoutubeUrlManager : MonoBehaviour
                     }
                 }
             }
-            
+            else if (loadType == ON_LOADED.JUST_SET_URL)
+            {
+                for (int i = 0; i < youtubeUrls.Count; i++)
+                {
+                    for (int j = 0; j < youtubePlayers.Length; j++)
+                    {
+                        if (youtubePlayers[j].gameObject.name == youtubeUrls[i].id)
+                        {
+                            //youtubePlayers[j].PlayPause();
+                            youtubePlayers[j].youtubeUrl = youtubeUrls[i].url;
+                        }
+                    }
+                }
+            }
+
         });
     }
 

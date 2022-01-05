@@ -25,9 +25,9 @@ public class YoutubeAPIManager : MonoBehaviour {
      * 
      * */
 
-    private const string APIKey = "AIzaSyCSh8NNjutCdJ3pAMJjWrGFbB8_onIMn1Y";
+    private const string APIKey = "AIzaSyCrwUn80wV8gdDXY3_dMJY_39JhbN-fb4w"; // aryo.damar@cubestudio.id Token
     /*AIzaSyCSh8NNjutCdJ3pAMJjWrGFbB8_onIMn1Y*/
-        /*"AIzaSyAyctJVli2oEUoXZ8ta_4O0nKyknwXzvaw";*/
+    /*"AIzaSyAyctJVli2oEUoXZ8ta_4O0nKyknwXzvaw";*/
 
     public void GetVideoData(string videoId, Action<YoutubeData> callback)
     {
@@ -36,7 +36,7 @@ public class YoutubeAPIManager : MonoBehaviour {
 
     private void Start()
     {
-        Debug.LogWarning("REMEMBER TO CHANGE THE API KEY TO YOUR OWN KEY - REMOVE THIS IF YOU CHANGED");
+        //Debug.LogWarning("REMEMBER TO CHANGE THE API KEY TO YOUR OWN KEY - REMOVE THIS IF YOU CHANGED");
     }
 
 

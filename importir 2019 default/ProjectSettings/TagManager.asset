@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Interactable
-  - button1
-  - button8
-  - button2
-  - button10
-  - button3
-  - button9
-  - button6
-  - button5
-  - button7
-  - button4
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - post process
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
